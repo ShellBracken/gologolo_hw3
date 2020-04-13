@@ -43,7 +43,7 @@ class HomeScreen extends Component {
                                 <div>
                                     <Link id="add_logo_button" to="/create">
                                         <button>
-                                            Create a New Logo
+                                            Add Logo
                                         </button>
                                     </Link>
                                 </div>
