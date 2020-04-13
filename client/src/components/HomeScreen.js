@@ -27,7 +27,8 @@ class HomeScreen extends Component {
                         <div className="container row">
                             <div className="col s4">
                                 <h3>Recent Work</h3>
-                                {data.logos.map((logo, index) => (
+                                
+                                {data.logos.reverse().map((logo, index) => (
                                     <div key={index} className='home_logo_link'
                                         style={{ cursor: "pointer" }}>
                                         <Link to={`/view/${logo._id}`}>{logo.text}</Link>
@@ -40,7 +41,11 @@ class HomeScreen extends Component {
                                     List Maker
                                 </div>
                                 <div>
-                                    <Link id="add_logo_button" to="/create">Add Logo</Link>
+                                    <Link id="add_logo_button" to="/create">
+                                        <button>
+                                            Create a New Logo
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
