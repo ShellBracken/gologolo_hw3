@@ -43,7 +43,7 @@ mutation{
 
 mutation{
   updateLogo(
-		id: "5e951b2d5c79df36a8e14bc4",
+		id: "[INSERT ID HERE]",
         text: "A Nonunique Text",
         color: "#ff8080",
         fontSize: 2,
@@ -65,6 +65,13 @@ mutation{
     padding
     margin
     lastUpdate
+  }
+}
+
+mutation{
+  removeLogo( 
+        id:"[INSERT ID HERE]"){
+    _id
   }
 }
 
