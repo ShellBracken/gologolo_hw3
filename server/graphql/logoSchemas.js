@@ -28,6 +28,21 @@ var logoType = new GraphQLObjectType({
             backgroundColor: {
                 type: GraphQLString
             },
+            borderColor: {
+                type: GraphQLString
+            },
+            borderRadius: {
+                type: GraphQLInt
+            },
+            borderWidth: {
+                type: GraphQLInt
+            },
+            padding: {
+                type: GraphQLInt
+            },
+            margin: {
+                type: GraphQLInt
+            },
             lastUpdate: {
                 type: GraphQLDate
             }
@@ -87,6 +102,21 @@ var mutation = new GraphQLObjectType({
                     },
                     backgroundColor: {
                         type: new GraphQLNonNull(GraphQLString)
+                    },
+                    borderColor: {
+                        type: new GraphQLNonNull(GraphQLString)
+                    },
+                    borderRadius: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    borderWidth: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    padding: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    margin: {
+                        type: new GraphQLNonNull(GraphQLInt)
                     }
                 },
                 resolve: function (root, params) {
@@ -116,11 +146,26 @@ var mutation = new GraphQLObjectType({
                     },
                     backgroundColor: {
                         type: new GraphQLNonNull(GraphQLString)
+                    },
+                    borderColor: {
+                        type: new GraphQLNonNull(GraphQLString)
+                    },
+                    borderRadius: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    borderWidth: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    padding: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    margin: {
+                        type: new GraphQLNonNull(GraphQLInt)
                     }
                 },
                 resolve(root, params) {
                     return LogoModel.findByIdAndUpdate(params.id, { text: params.text, color: params.color, fontSize: params.fontSize, 
-                        backgroundColor: params.backgroundColor, lastUpdate: new Date() }, function (err) {
+                        backgroundColor: params.backgroundColor, borderColor: params.borderColor, lastUpdate: new Date() }, function (err) {
                         if (err) return next(err);
                     });
                 }

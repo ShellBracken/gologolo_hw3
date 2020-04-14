@@ -31,3 +31,11 @@ body {
   padding-top: 5%;
   padding-bottom: 5%;
 }
+
+.row {
+  margin: auto
+}
+
+.navbar{
+  background-color: #ee6e73;
+}

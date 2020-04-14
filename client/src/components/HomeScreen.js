@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "react-bootstrap/Navbar";
 
 const GET_LOGOS = gql`
   {
@@ -26,14 +28,21 @@ class HomeScreen extends Component {
                     return (
                         <div className="container row">
                             <div className="col s4">
-                                <h3>Recent Work</h3>
-                                
+                                <Navbar variant="light">
+                                    <font color="white">
+                                        <h3>Recent Work</h3>
+                                    </font>
+                                </Navbar>
+                                <div class="card">
+                                <div class="card-body">
                                 {data.logos.reverse().map((logo, index) => (
                                     <div key={index} className='home_logo_link'
                                         style={{ cursor: "pointer" }}>
                                         <Link to={`/view/${logo._id}`}>{logo.text}</Link>
                                     </div>
                                 ))}
+                                </div>
+                                </div>
                             </div>
                             <div className="col s8">
                                 <div id="home_banner_container">
@@ -43,7 +52,7 @@ class HomeScreen extends Component {
                                 <div>
                                     <Link id="add_logo_button" to="/create">
                                         <button>
-                                            Add Logo
+                                            Create a Logo
                                         </button>
                                     </Link>
                                 </div>

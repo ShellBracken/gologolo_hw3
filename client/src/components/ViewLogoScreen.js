@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import gql from 'graphql-tag';
 import { Query, Mutation } from 'react-apollo';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 const GET_LOGO = gql`
     query logo($logoId: String) {
@@ -12,6 +15,11 @@ const GET_LOGO = gql`
             color
             fontSize
             backgroundColor
+            borderColor
+            borderRadius
+            borderWidth
+            padding
+            margin
             lastUpdate
         }
     }
@@ -38,12 +46,21 @@ class ViewLogoScreen extends Component {
                         <div className="container">
                             <div className="panel panel-default">
                                 <div className="panel-heading">
-                                    <h4><Link to="/">Home</Link></h4>
-                                    <h3 className="panel-title">
-                                        View Logo
-                                    </h3>
+                                    <Navbar variant="light">
+                                        <Navbar.Brand>
+                                            <h3 className="panel-title">
+                                                View Logo
+                                            </h3>
+                                        </Navbar.Brand>
+                                        <Nav className="mr-auto">
+                                            <h4><Link to="/">Home</Link></h4>
+                                        </Nav>
+                                    </Navbar>
                                 </div>
                                 <div className="panel-body">
+                                    <div className="row">
+                                    <div class="card">
+                                    <div class="card-body">  
                                     <dl>
                                         <dt>Text:</dt>
                                         <dd>{data.logo.text}</dd>
@@ -53,6 +70,16 @@ class ViewLogoScreen extends Component {
                                         <dd>{data.logo.fontSize}</dd>
                                         <dt>Background Color:</dt>
                                         <dd>{data.logo.backgroundColor}</dd>
+                                        <dt>Border Color:</dt>
+                                        <dd>{data.logo.borderColor}</dd>
+                                        <dt>Border Radius:</dt>
+                                        <dd>{data.logo.borderRadius}</dd>
+                                        <dt>Border Width:</dt>
+                                        <dd>{data.logo.borderWidth}</dd>
+                                        <dt>Padding:</dt>
+                                        <dd>{data.logo.padding}</dd>
+                                        <dt>Margin:</dt>
+                                        <dd>{data.logo.margin}</dd>
                                         <dt>Last Updated:</dt>
                                         <dd>{data.logo.lastUpdate}</dd>
                                     </dl>
@@ -72,6 +99,9 @@ class ViewLogoScreen extends Component {
                                             </div>
                                         )}
                                     </Mutation>
+                                    </div>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

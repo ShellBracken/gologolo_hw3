@@ -1,5 +1,74 @@
 # Example Queries
-...
+
+{
+  logos {
+    _id
+    text
+    color
+    fontSize
+    borderColor
+    borderRadius
+    borderWidth
+    padding
+    margin
+    lastUpdate
+  }
+}
+
+mutation{
+  addLogo(
+        text: "A Unique Text",
+        color: "#ff8080",
+        fontSize: 2,
+    		backgroundColor: "#ff8080",
+        borderColor: "#ff8080",
+        borderRadius: 5,
+        borderWidth: 2,
+        padding: 2,
+        margin: 2){
+    
+    _id
+    text
+    color
+    fontSize
+    backgroundColor
+    borderColor
+    borderRadius
+    borderWidth
+    padding
+    margin
+    lastUpdate
+  }
+}
+
+mutation{
+  updateLogo(
+		id: "5e951b2d5c79df36a8e14bc4",
+        text: "A Nonunique Text",
+        color: "#ff8080",
+        fontSize: 2,
+    		backgroundColor: "#ff8080",
+        borderColor: "#ff8080",
+        borderRadius: 5,
+        borderWidth: 2,
+        padding: 2,
+        margin: 2){
+    
+    _id
+    text
+    color
+    fontSize
+    backgroundColor
+    borderColor
+    borderRadius
+    borderWidth
+    padding
+    margin
+    lastUpdate
+  }
+}
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
